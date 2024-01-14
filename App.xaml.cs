@@ -1,6 +1,7 @@
 ﻿using FridgeTrackerZuyd.MVVM.Views;
 using FridgeTracker.Repositories;
 using FridgeTracker.MVVM.Models;
+using FridgeTracker.MVVM.Views;
 
 namespace FridgeTrackerZuyd
 {
@@ -9,6 +10,7 @@ namespace FridgeTrackerZuyd
         public static BaseRepository<Brew>? BrewRepo { get; private set; }
         public static BaseRepository<GeneralUser>? UserRepo { get; private set; }
         public static BaseRepository<Group>? GroupRepo { get; private set; }
+        public static GeneralUser? LoggedInUser {  get; set; }
 
         public App(BaseRepository<Brew> brewRepo,
             BaseRepository<GeneralUser> userRepo,

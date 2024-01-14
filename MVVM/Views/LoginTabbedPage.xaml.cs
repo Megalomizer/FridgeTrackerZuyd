@@ -40,15 +40,14 @@ public partial class LoginTabbedPage : ContentPage
                 {
                     await Navigation.PushAsync(new Homepage());
                     EmailEntry.Text = "";
-                }
-                else if (user.Email != userEmail || user.Password != userPassword)
-                {
-                    await DisplayAlert("Incorrect credentials", "There was no account found with these login credentials. Please register or fill in the correct information.", "OK");
+                    App.LoggedInUser = user;
                 }
             }
         }
 
-        // Reset password
+        // If user was not logged in
+        if (App.LoggedInUser == null)
+            await DisplayAlert("Incorrect credentials", "There was no account found with these login credentials. Please register or fill in the correct information.", "OK");
         PasswordEntry.Text = "";
     }
 }
