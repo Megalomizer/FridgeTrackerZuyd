@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FridgeTracker.MVVM.Views.Homepage"
+             Title="Homepage"
+             NavigationPage.HasBackButton="False">
+
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem x:Name="Toolbar_Home"
+                     Clicked="Toolbar_Home_Clicked"
+                     Text="Home"
+                     Order="Secondary"
+                     Priority="0"/>
+
+        <ToolbarItem x:Name="Toolbar_Groups"
+                     Clicked="Toolbar_Groups_Clicked"
+                     Text="Groups"
+                     Order="Secondary"
+                     Priority="2"/>
+
+        <ToolbarItem x:Name="Toolbar_Profile"
+                     Clicked="Toolbar_Profile_Clicked"
+                     Text="Profile"
+                     Order="Secondary"
+                     Priority="1"/>
+
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="20,5"
+                 Spacing="15">
+
+        <Label x:Name="Home_Title_Label"
+               Text="Active Group"
+               Style="{x:StaticResource Headline}"/>
+
+        <Frame BackgroundColor="{x:StaticResource Gray600}"
+               CornerRadius="20"
+               BorderColor="Transparent">
+            
+            <Grid>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="130"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="ActiveGroup_Name"
+                       Text="Groupname"
+                       Style="{x:StaticResource SubHeadline}"/>
+
+                <Rectangle x:Name="Groupname_Devider"
+                           WidthRequest="300"
+                           HeightRequest="3"
+                           BackgroundColor="{x:StaticResource Primary}"
+                           Grid.Row="1"
+                           VerticalOptions="Start"/>
+
+                <Grid Grid.Row="2"
+                      Margin="20,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="40"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="StatusLabel"
+                           Text="Status"
+                           FontSize="20"
+                           HorizontalOptions="Start"/>
+
+                    <Label x:Name="StatusGroup"
+                           Text="Active"
+                           FontSize="20"
+                           Grid.Column="1"
+                           HorizontalTextAlignment="End"/>
+
+                    <Label x:Name="CreatorLabel"
+                           Text="Creator"
+                           FontSize="20"
+                           HorizontalOptions="Start"
+                           Grid.Row="1"/>
+
+                    <Label x:Name="CreatorGroup"
+                           Text="CreatorGroup"
+                           FontSize="20"
+                           HorizontalOptions="End"
+                           Grid.Column="1"
+                           Grid.Row="1"/>
+
+                    <Label x:Name="CreationDate"
+                           Text="Date"
+                           FontSize="20"
+                           HorizontalOptions="Start"
+                           Grid.Row="2"/>
+
+                    <Label x:Name="Group_CreationDate"
+                           Text="10/12/2023"
+                           FontSize="20"
+                           HorizontalOptions="End"
+                           Grid.Column="1"
+                           Grid.Row="2"/>
+
+                </Grid>
+
+                <Label x:Name="BrewListTitle"
+                       Text="Brews"
+                       Style="{x:StaticResource SubHeadline}"
+                       Grid.Row="3"/>
+
+                <Rectangle x:Name="BrewsDevider"
+                           Background="{x:StaticResource Secondary}"
+                           WidthRequest="150"
+                           HeightRequest="3"
+                           Grid.Row="4"
+                           VerticalOptions="Center"/>
+
+                <Grid Grid.Row="5"
+                      Margin="20,10">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name="BrewAmount1"
+                           Text="10x"
+                           FontSize="20"/>
+                    
+                    <Label x:Name="BrewName1"
+                           Text="Coca Cola"
+                           FontSize="20"
+                           Grid.Column="1"/>
+                    
+                    <Label x:Name="BrewAmount2"
+                           Text="12x"
+                           FontSize="20"
+                           Grid.Row="1"/>
+                    
+                    <Label x:Name="BrewName2"
+                           Text="Fanta Orange"
+                           FontSize="20"
+                           Grid.Column="1"
+                           Grid.Row="1"/>
+                    
+                </Grid>
+
+                <Button x:Name="GroupDetailsButton"
+                        Clicked="GroupDetailsButton_Clicked"
+                        Text="View Details"
+                        Grid.Row="6"
+                        FontSize="20"
+                        FontAttributes="Bold"
+                        Background="{x:StaticResource Gray600}"
+                        TextColor="{x:StaticResource White}"
+                        CornerRadius="20"
+                        HeightRequest="45"
+                        WidthRequest="200"
+                        Margin="0,10,0,0"/>
+
+            </Grid>
+
+        </Frame>
+
+    </StackLayout>
+
+</ContentPage>

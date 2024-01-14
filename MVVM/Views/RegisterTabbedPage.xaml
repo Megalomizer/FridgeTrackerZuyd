@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FridgeTracker.MVVM.Views.RegisterTabbedPage"
+             xmlns:vm="clr-namespace:FridgeTracker.MVVM.ViewModels"
+             Title="Register"
+             NavigationPage.HasBackButton="False"
+             NavigationPage.BackButtonTitle="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout Spacing="10"
+                 Margin="10,10">
+
+        <Label x:Name="PageTitle"
+               Text="Register"
+               Style="{x:StaticResource Headline}"/>
+
+        <Rectangle x:Name="TitleDevider" 
+                   WidthRequest="500"
+                   HeightRequest="3"
+                   BackgroundColor="{x:StaticResource Primary}"/>
+
+        <Frame BackgroundColor="{x:StaticResource Gray950}"
+               CornerRadius="20"
+               BorderColor="Transparent"
+               Margin="0,10">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="EmailLabel"
+                       Text="Emailaddress"
+                       HorizontalOptions="Start"
+                       Margin="2.5,0"
+                       Style="{x:StaticResource SubHeadline}"/>
+
+                <Entry x:Name="EmailEntry"
+                       Grid.Row="1"
+                       FontSize="16"
+                       Placeholder="Enter Emailaddress"/>
+
+            </Grid>
+
+        </Frame>
+
+        <Frame BackgroundColor="{x:StaticResource Gray950}"
+               CornerRadius="20"
+               BorderColor="Transparent">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="PasswordLabel1"
+                       Text="Password"
+                       HorizontalOptions="Start"
+                       Margin="2.5,0"
+                       Style="{x:StaticResource SubHeadline}"/>
+
+                <Entry x:Name="PasswordEntry1"
+                       Grid.Row="1"
+                       FontSize="16"
+                       Placeholder="Enter Password"
+                       IsPassword="True"/>
+
+            </Grid>
+
+        </Frame>
+
+        <Frame BackgroundColor="{x:StaticResource Gray950}"
+               CornerRadius="20"
+               BorderColor="Transparent"
+               Margin="0,10">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="PasswordLabel2"
+                       Text="Password Confirmation"
+                       HorizontalOptions="Start"
+                       Margin="2.5,0"
+                       Style="{x:StaticResource SubHeadline}"/>
+
+                <Entry x:Name="PasswordEntry2"
+                       Grid.Row="1"
+                       FontSize="16"
+                       Placeholder="Enter Password Again"
+                       IsPassword="True"/>
+
+            </Grid>
+
+        </Frame>
+
+        <Button x:Name="RegisterButton"
+                Text="Register"
+                Clicked="CreateNewUser"
+                HeightRequest="50"
+                WidthRequest="250"
+                FontSize="25"
+                FontAttributes="Bold"
+                TextColor="{x:StaticResource Primary}"
+                BackgroundColor="{x:StaticResource Gray950}"
+                CornerRadius="20"
+                Margin="0,50"/>
+
+    </StackLayout>
+
+</ContentPage>
