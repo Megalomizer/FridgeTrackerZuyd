@@ -2,15 +2,95 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FridgeTracker.MVVM.Views.GroupMainPage"
-             Title="GroupMainPage">
-    
-    <VerticalStackLayout>
-        
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        
-    </VerticalStackLayout>
-    
+             Title="Groups">
+
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem x:Name="Toolbar_Home"
+                     Clicked="Toolbar_Home_Clicked"
+                     Text="Home"
+                     Order="Secondary"
+                     Priority="0"/>
+
+        <ToolbarItem x:Name="Toolbar_Groups"
+                     Clicked="Toolbar_Groups_Clicked"
+                     Text="Groups"
+                     Order="Secondary"
+                     Priority="2"/>
+
+        <ToolbarItem x:Name="Toolbar_Profile_1"
+                     Clicked="Toolbar_Profile_Clicked"
+                     Text="Profile"
+                     Order="Primary"
+                     Priority="1"/>
+
+        <ToolbarItem x:Name="Toolbar_Profile_2"
+                     Clicked="Toolbar_Profile_Clicked"
+                     Text="Profile"
+                     Order="Secondary"
+                     Priority="1"/>
+
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="20,5"
+                 Spacing="15">
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="JoinGroup_btn"
+                    Clicked="JoinGroup_nav"
+                    Text="Join a Group"
+                    Grid.Column="0"
+                    FontSize="18"
+                    Margin="0,10,10,0"/>
+
+            <Button x:Name="CreateGroup_btn"
+                    Clicked="CreateGroup_nav"
+                    Text="Create a new Group"
+                    Grid.Column="1"
+                    FontSize="18"
+                    Margin="10,10,0,0"/>
+
+        </Grid>
+
+        <Rectangle/>
+
+        <ListView ItemsSource="{Binding Groups}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+
+                        <Frame BackgroundColor="{x:StaticResource Primary}"
+                               CornerRadius="15"
+                               Margin="5,5,5,5"
+                               HeightRequest="100">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="50"/>
+                                </Grid.RowDefinitions>
+
+                                <Label x:Name="GroupName"
+                                       Text="{Binding Group.Name}"/>
+
+                                <Label x:Name="GroupCreator"
+                                       Grid.Row="1"
+                                       Text="{Binding Group.Creator.Name}"/>
+
+                            </Grid>
+                            
+                        </Frame>
+                        
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+
 </ContentPage>

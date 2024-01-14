@@ -1,4 +1,6 @@
 ﻿using FridgeTracker.Abstractions;
+using FridgeTracker.MVVM.Models;
+using FridgeTracker.MVVM.Views;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -68,6 +70,21 @@ namespace FridgeTracker.Repositories
                 return connection.Table<T>().ToList();
             }
             catch (Exception ex)
+            {
+                StatusMessage = $"Error: {ex.Message}";
+            }
+            return null;
+        }
+
+        // Read Groups by user
+        public List<Group>? GetGroupsByUser(GeneralUser entity)
+        {
+            try
+            {
+                GeneralUser user = connection.Table<GeneralUser>().FirstOrDefault(x => x.Id == entity.Id);
+                return connection.Table<Group>().Where(x => x.Creator.Id == user.Id || x.Members.Contains(user)).ToList();
+            }
+            catch(Exception ex)
             {
                 StatusMessage = $"Error: {ex.Message}";
             }

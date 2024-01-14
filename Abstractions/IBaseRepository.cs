@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using FridgeTracker.MVVM.Models;
 
 namespace FridgeTracker.Abstractions
 {
@@ -15,6 +16,9 @@ namespace FridgeTracker.Abstractions
         // Read One/Read Many
         T? GetEntity(int id);
         List<T>? GetEntities();
+
+        // Get Group by user
+        List<Group>? GetGroupsByUser(GeneralUser entity);
 
         // Delete
         void DeleteEntity(T entity);

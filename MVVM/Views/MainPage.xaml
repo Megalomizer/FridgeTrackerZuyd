@@ -4,8 +4,7 @@
             x:Class="FridgeTrackerZuyd.MVVM.Views.MainPage"
             xmlns:Home="clr-namespace:FridgeTracker.MVVM.Views"
             NavigationPage.BackButtonTitle="False"
-            NavigationPage.HasBackButton="False"
-            NavigationPage.HasNavigationBar="False">
+            NavigationPage.HasBackButton="False">
 
     <Home:LoginTabbedPage Title="Login"/>
     <Home:RegisterTabbedPage Title="Register"/>
