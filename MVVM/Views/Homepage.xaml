@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FridgeTracker.MVVM.Views.Homepage"
-             Title="Homepage"
+             Title="Home"
              NavigationPage.HasBackButton="False">
 
     <ContentPage.ToolbarItems>
@@ -22,17 +22,13 @@
         <ToolbarItem x:Name="Toolbar_Profile"
                      Clicked="Toolbar_Profile_Clicked"
                      Text="Profile"
-                     Order="Secondary"
+                     Order="Primary"
                      Priority="1"/>
 
     </ContentPage.ToolbarItems>
 
     <StackLayout Margin="20,5"
                  Spacing="15">
-
-        <Label x:Name="Home_Title_Label"
-               Text="Active Group"
-               Style="{x:StaticResource Headline}"/>
 
         <Frame BackgroundColor="{x:StaticResource Gray600}"
                CornerRadius="20"
@@ -176,6 +172,13 @@
             </Grid>
 
         </Frame>
+
+        <Button x:Name="ShowAllGroups"
+                Text="Show all groups"
+                Clicked="Toolbar_Groups_Clicked"
+                FontSize="16"
+                Margin="0,10,0,0"
+                BackgroundColor="{x:StaticResource Secondary}"/>
 
     </StackLayout>
 
