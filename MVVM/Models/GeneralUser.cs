@@ -20,7 +20,6 @@ namespace FridgeTracker.MVVM.Models
         
         [Unique]
         public string? Email { get; set; }
-        [Unique]
         public string? Password { get; set; }
     }
 }
