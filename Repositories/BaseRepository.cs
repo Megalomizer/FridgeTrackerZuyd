@@ -1,7 +1,9 @@
 ﻿using FridgeTracker.Abstractions;
 using FridgeTracker.MVVM.Models;
 using FridgeTracker.MVVM.Views;
+using FridgeTrackerZuyd;
 using SQLite;
+using SQLiteNetExtensions.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,25 +21,31 @@ namespace FridgeTracker.Repositories
         {
             connection = new SQLiteConnection(Constants.DatabasePath, Constants.flags);
             connection.CreateTable<T>();
+
+            // Create all tables -> Anders foutmeldingen van koppeltabellen
+            connection.CreateTables<Brew, Group, GeneralUser, GroupBrew, GroupGeneralUser>();
         }
 
         // Create/Update
         public void SaveEntity(T? entity, bool recursive = false)
         {
-            int result = 0;
             if(entity != null)
             {
                 try
                 {
-                    if(entity.Id != 0)
+                    try
                     {
-                        result = connection.Update(entity);
-                        StatusMessage = $"{result} row(s) updated";
+                        if (entity.Id != 0)
+                            connection.UpdateWithChildren(entity);
+                        else
+                            connection.InsertWithChildren(entity);
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        result = connection.Insert(entity);
-                        StatusMessage = $"{result} row(s) added";
+                        if (entity.Id != 0)
+                            connection.Update(entity);
+                        else
+                            connection.Insert(entity);
                     }
                 }
                 catch (Exception ex)
@@ -52,7 +60,17 @@ namespace FridgeTracker.Repositories
         {
             try
             {
-                return connection.Table<T>().FirstOrDefault(x => x.Id == id);
+                T entity = new T();
+                try
+                {
+                    entity = connection.GetWithChildren<T>(id);
+                }
+                catch (Exception e)
+                {
+                    entity = connection.Table<T>().FirstOrDefault(t => t.Id == id);
+                }
+                
+                return entity;
             }
             catch (Exception ex)
             {
@@ -67,24 +85,18 @@ namespace FridgeTracker.Repositories
         {
             try
             {
-                return connection.Table<T>().ToList();
+                List<T> entity = new List<T>();
+                try
+                {
+                    entity = connection.GetAllWithChildren<T>().ToList();
+                }
+                catch (Exception ex)
+                {
+                    entity = connection.Table<T>().ToList();
+                }
+                return entity;
             }
             catch (Exception ex)
-            {
-                StatusMessage = $"Error: {ex.Message}";
-            }
-            return null;
-        }
-
-        // Read Groups by user
-        public List<Group>? GetGroupsByUser(GeneralUser entity)
-        {
-            try
-            {
-                GeneralUser user = connection.Table<GeneralUser>().FirstOrDefault(x => x.Id == entity.Id);
-                return connection.Table<Group>().Where(x => x.Creator.Id == user.Id || x.Members.Contains(user)).ToList();
-            }
-            catch(Exception ex)
             {
                 StatusMessage = $"Error: {ex.Message}";
             }

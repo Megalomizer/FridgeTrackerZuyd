@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FridgeTracker.MVVM.Views.GroupMainPage"
+             xmlns:vm="clr-namespace:FridgeTrackerZuyd.MVVM.ViewModels"
              Title="Groups">
 
     <ContentPage.ToolbarItems>
@@ -35,10 +36,10 @@
     <StackLayout Margin="20,5"
                  Spacing="15">
 
-        <Grid>
+        <Grid HorizontalOptions="Center">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
 
             <Button x:Name="JoinGroup_btn"
@@ -46,6 +47,7 @@
                     Text="Join a Group"
                     Grid.Column="0"
                     FontSize="18"
+                    WidthRequest="150"
                     Margin="0,10,10,0"/>
 
             <Button x:Name="CreateGroup_btn"
@@ -53,34 +55,53 @@
                     Text="Create a new Group"
                     Grid.Column="1"
                     FontSize="18"
+                    WidthRequest="150"
                     Margin="10,10,0,0"/>
 
         </Grid>
 
-        <Rectangle/>
+        <Rectangle x:Name="Title_Devider"
+                   WidthRequest="300"
+                   HeightRequest="3"
+                   BackgroundColor="{x:StaticResource Primary}"
+                   Grid.Row="1"
+                   VerticalOptions="Start"/>
 
-        <ListView ItemsSource="{Binding Groups}">
+        <ListView ItemsSource="{Binding Groups}"
+                  RowHeight="100"
+                  SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
+                    <ViewCell Tapped="ViewCell_Tapped">
 
-                        <Frame BackgroundColor="{x:StaticResource Primary}"
+                        <Frame BackgroundColor="{x:StaticResource Secondary}"
+                               BorderColor="Transparent"
                                CornerRadius="15"
-                               Margin="5,5,5,5"
-                               HeightRequest="100">
+                               Margin="0,5,0,5">
 
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="50"/>
-                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="0"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="25"/>
                                 </Grid.RowDefinitions>
 
+                                <Label x:Name="GroupId"
+                                       Text="{Binding Id}"
+                                       IsVisible="False"/>
+
                                 <Label x:Name="GroupName"
-                                       Text="{Binding Group.Name}"/>
+                                       Grid.Row="1"
+                                       Text="{Binding Name}"
+                                       TextColor="{x:StaticResource Gray950}"
+                                       FontAttributes="Bold"
+                                       FontSize="18"/>
 
                                 <Label x:Name="GroupCreator"
-                                       Grid.Row="1"
-                                       Text="{Binding Group.Creator.Name}"/>
+                                       Grid.Row="2"
+                                       Text="{Binding Creator.Email}"
+                                       TextColor="{x:StaticResource Gray950}"
+                                       FontSize="14"/>
 
                             </Grid>
                             

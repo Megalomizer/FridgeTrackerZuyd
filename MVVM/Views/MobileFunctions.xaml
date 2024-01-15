@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FridgeTrackerZuyd.MVVM.Views.MobileFunctions"
+             xmlns:cv="clr-namespace:Camera.MAUI;assembly=Camera.MAUI"
+             Title="MobileFunctions">
+
+    <ScrollView Margin="5,10,5,10"
+                HorizontalOptions="Center">
+        
+        <StackLayout HeightRequest="1200"
+                     Spacing="10">
+
+            <Label Text="Mobile Specific Functions"
+               FontSize="30"
+               HorizontalOptions="Center"/>
+
+            <Rectangle WidthRequest="300"
+                   HeightRequest="3"
+                   BackgroundColor="{x:StaticResource Primary}"
+                   Margin="0,0,0,20"/>
+
+            <Button Text="Send Notification!"
+                CornerRadius="15"
+                Clicked="SendNotification"
+                FontSize="30"/>
+
+            <Rectangle BackgroundColor="{x:StaticResource Primary}"
+                   WidthRequest="300"
+                   HeightRequest="3"
+                   HorizontalOptions="Center"/>
+
+            <Button Text="Camera"
+                Clicked="TakePhoto"
+                FontSize="20"
+                CornerRadius="15"/>
+
+            <Button Text="Select"
+                Clicked="AddCameraRollPhoto"
+                FontSize="20"
+                CornerRadius="15"/>
+
+            <Button Text="Remove"
+                Clicked="RemovePhoto"
+                FontSize="20"
+                CornerRadius="15"/>
+
+            <Image x:Name="TakenPicture_img"
+               MaximumHeightRequest="400"
+               MaximumWidthRequest="400"
+               Margin="5,30,5,30"/>
+
+            <Rectangle BackgroundColor="{x:StaticResource Primary}"
+                   WidthRequest="300"
+                   HeightRequest="3"
+                   HorizontalOptions="Center"/>
+
+            <cv:BarcodeImage x:Name="BarcodeImage_QR"
+                         WidthRequest="300"
+                         HeightRequest="300"
+                         BarcodeHeight="300"
+                         BarcodeWidth="300"
+                         BarcodeBackground="White"
+                         BarcodeForeground="Blue"
+                         BarcodeFormat="QR_CODE"
+                         BarcodeMargin="1"
+                         Barcode="https://www.youtube.com/watch?v=Sagg08DrO5U"/>
+
+        </StackLayout>
+
+    </ScrollView>
+    
+</ContentPage>

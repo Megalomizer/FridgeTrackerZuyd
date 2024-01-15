@@ -31,6 +31,11 @@
                      Order="Secondary"
                      Priority="1"/>
 
+        <ToolbarItem x:Name="Toolbar_Tech"
+                     Text="Mobile Functions"
+                     Order="Secondary"
+                     Clicked="Toolbar_tech_clicked"/>
+
     </ContentPage.ToolbarItems>
 
     <StackLayout Margin="20,5"

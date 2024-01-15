@@ -17,9 +17,6 @@ namespace FridgeTracker.Abstractions
         T? GetEntity(int id);
         List<T>? GetEntities();
 
-        // Get Group by user
-        List<Group>? GetGroupsByUser(GeneralUser entity);
-
         // Delete
         void DeleteEntity(T entity);
 

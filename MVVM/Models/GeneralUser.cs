@@ -12,7 +12,7 @@ namespace FridgeTracker.MVVM.Models
     [Table("GeneralUsers")]
     public class GeneralUser : TableData
     {
-        [ManyToMany(typeof(GroupUsers), CascadeOperations = CascadeOperation.All)]
+        [ManyToMany(typeof(GroupGeneralUser), CascadeOperations = CascadeOperation.All)]
         public List<Group>? Groups { get; set; }
 
         [Column("name"), Indexed]

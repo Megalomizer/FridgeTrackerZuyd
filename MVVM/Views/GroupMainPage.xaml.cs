@@ -1,4 +1,6 @@
+using FridgeTracker.MVVM.Models;
 using FridgeTrackerZuyd.MVVM.ViewModels;
+using FridgeTrackerZuyd.MVVM.Views;
 
 namespace FridgeTracker.MVVM.Views;
 
@@ -30,11 +32,19 @@ public partial class GroupMainPage : ContentPage
 
     private async void CreateGroup_nav(object sender, EventArgs e)
     {
-        //await Navigation.PushAsync();
+        await Navigation.PushAsync(new GroupCreatePage());
     }
 
     private void JoinGroup_nav(object sender, EventArgs e)
     {
         //await Navigation.PushAsync();
+    }
+
+    private void ViewCell_Tapped(object sender, EventArgs e)
+    {
+        var viewCell = sender as ViewCell;
+        var tappedItem = viewCell.BindingContext as Group;
+
+        Navigation.PushAsync(new GroupDetailsTabbedPage() { BindingContext = tappedItem });
     }
 }
