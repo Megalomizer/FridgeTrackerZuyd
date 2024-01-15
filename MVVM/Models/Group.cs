@@ -13,10 +13,10 @@ namespace FridgeTracker.MVVM.Models
     [Table("Groups")]
     public class Group : TableData
     {
-        [ManyToMany(typeof(GroupBrews), CascadeOperations = CascadeOperation.All)]
+        [ManyToMany(typeof(GroupBrew), CascadeOperations = CascadeOperation.All)]
         public List<Brew>? Brews { get; set; }
 
-        [ManyToMany(typeof(GroupUsers),CascadeOperations = CascadeOperation.All)]
+        [ManyToMany(typeof(GroupGeneralUser),CascadeOperations = CascadeOperation.All)]
         public List<GeneralUser>? Members { get; set; }
 
         [OneToOne(CascadeOperations=CascadeOperation.All)]

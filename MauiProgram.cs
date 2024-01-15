@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using FridgeTracker.Repositories;
 using FridgeTracker.MVVM.Models;
+using Plugin.LocalNotification;
+using Camera.MAUI;
 
 namespace FridgeTrackerZuyd
 {
@@ -11,6 +13,8 @@ namespace FridgeTrackerZuyd
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseLocalNotification()
+                .UseMauiCameraView()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

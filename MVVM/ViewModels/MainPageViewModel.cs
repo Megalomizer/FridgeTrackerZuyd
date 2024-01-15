@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using FridgeTrackerZuyd;
 
-namespace FridgeTracker.MVVM.ViewModels
+namespace FridgeTrackerZuyd.MVVM.ViewModels
 {
     [AddINotifyPropertyChangedInterface]
     public class MainPageViewModel

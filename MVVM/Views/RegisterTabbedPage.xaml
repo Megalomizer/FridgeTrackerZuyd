@@ -20,7 +20,7 @@
                    HeightRequest="3"
                    BackgroundColor="{x:StaticResource Primary}"/>
 
-        <Frame BackgroundColor="{x:StaticResource Gray950}"
+        <Frame BackgroundColor="{x:StaticResource Gray300}"
                CornerRadius="20"
                BorderColor="Transparent"
                Margin="0,10">
@@ -46,7 +46,7 @@
 
         </Frame>
 
-        <Frame BackgroundColor="{x:StaticResource Gray950}"
+        <Frame BackgroundColor="{x:StaticResource Gray300}"
                CornerRadius="20"
                BorderColor="Transparent">
 
@@ -72,7 +72,7 @@
 
         </Frame>
 
-        <Frame BackgroundColor="{x:StaticResource Gray950}"
+        <Frame BackgroundColor="{x:StaticResource Gray300}"
                CornerRadius="20"
                BorderColor="Transparent"
                Margin="0,10">
@@ -107,7 +107,7 @@
                 FontSize="25"
                 FontAttributes="Bold"
                 TextColor="{x:StaticResource Primary}"
-                BackgroundColor="{x:StaticResource Gray950}"
+                BackgroundColor="{x:StaticResource Gray300}"
                 CornerRadius="20"
                 Margin="0,50"/>
 

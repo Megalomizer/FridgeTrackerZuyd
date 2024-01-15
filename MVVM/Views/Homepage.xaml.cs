@@ -1,3 +1,5 @@
+using FridgeTrackerZuyd.MVVM.Views;
+
 namespace FridgeTracker.MVVM.Views;
 
 public partial class Homepage : ContentPage
@@ -27,6 +29,11 @@ public partial class Homepage : ContentPage
 
     private async void GroupDetailsButton_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new GroupDetailsPage());
+        // Go to details
+    }
+
+    private async void Toolbar_tech_clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new MobileFunctions());
     }
 }

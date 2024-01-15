@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FridgeTrackerZuyd.MVVM.Views.GroupCreatePage"
+             Title="">
+
+    <StackLayout Spacing="10"
+                 Margin="15,10,15,10"
+                 HorizontalOptions="Center">
+
+        <Label x:Name="Title_lb"
+               Text="Create a new group:"
+               FontSize="30"
+               HorizontalOptions="Center"/>
+
+        <Rectangle x:Name="Title_Devider"
+                   BackgroundColor="{x:StaticResource Primary}"
+                   WidthRequest="300"
+                   HeightRequest="3"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Center"/>
+
+        <Frame x:Name="Entry_background"
+               BackgroundColor="{x:StaticResource Secondary}"
+               CornerRadius="15"
+               BorderColor="Transparent">
+            
+            <Grid x:Name="Entry_grid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name="Entry_lb"
+                       Text="Group name:"
+                       FontSize="20"
+                       FontAttributes="Bold"/>
+
+                <Entry x:Name="GroupName_ent"
+                       Grid.Row="1"
+                       FontSize="18"
+                       Placeholder="Enter groupname here..."
+                       PlaceholderColor="{x:StaticResource Gray500}"/>
+
+            </Grid>
+
+        </Frame>
+
+        <Button x:Name="CreateGroup_btn"
+                Clicked="CreateNewGroup"
+                Text="Create Group"
+                CornerRadius="15"
+                BackgroundColor="{x:StaticResource Gray300}"
+                FontSize="18"
+                Margin="0,20,0,10"/>
+
+    </StackLayout>
+    
+</ContentPage>

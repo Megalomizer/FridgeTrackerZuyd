@@ -1,14 +1,82 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FridgeTracker.MVVM.Views.GroupDetailsPage"
-             Title="GroupDetailsPage">
+             x:Class="FridgeTrackerZuyd.MVVM.Views.GroupDetailsPage"
+             Title="Group Details">
+
+    <StackLayout Spacing="10"
+                 Margin="5,10,5,10">
+
+        <Label x:Name="GroupId"
+               IsVisible="False"
+               Text="{Binding Id}"/>
+
+        <Label x:Name="Detail_Title"
+               Text="Group Details"
+               HorizontalOptions="Center"
+               FontSize="30"/>
+
+        <Grid HorizontalOptions="Center" 
+              ColumnSpacing="-40" 
+              RowSpacing="-20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="Group_lb"
+                   Text="Group name:"
+                   FontSize="18"/>
+
+            <Label x:Name="Group_Name"
+                   Grid.Column="1"
+                   Text="{Binding Name}"
+                   FontSize="18"/>
+
+            <Label x:Name="Creator_lb"
+                   Grid.Row="1"
+                   Text="Creator:"
+                   FontSize="18"/>
+
+            <Label x:Name="Creator_Name"
+                   Grid.Column="1"
+                   Text="{Binding Creator.Name}"
+                   FontSize="18"/>
+
+            <Label x:Name="CreatorEmail_lb"
+                   Grid.Row="2"
+                   Text="Email:"
+                   FontSize="18"/>
+
+            <Label x:Name="Creator_Email"
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   Text="{Binding Creator.Email}"
+                   FontSize="18"/>
+
+        </Grid>
+
+        <Button x:Name="Shoppinglist_Button"
+                Text="View Shoppinglist"
+                FontSize="18"/>
+
+        <Button x:Name="ManageMembers_Button"
+                Text="View Members"
+                FontSize="18"/>
+
+        <Button x:Name="DeleteGroup_Button"
+                Clicked="DeleteGroup"
+                Text="Delete Group"
+                FontSize="18"
+                BackgroundColor="Red"
+                VerticalOptions="End"/>
+
+    </StackLayout>
     
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        
-    </VerticalStackLayout>
 </ContentPage>

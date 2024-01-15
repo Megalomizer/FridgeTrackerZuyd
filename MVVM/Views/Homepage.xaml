@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FridgeTracker.MVVM.Views.Homepage"
-             Title="Homepage"
+             Title="Home"
              NavigationPage.HasBackButton="False">
 
     <ContentPage.ToolbarItems>
@@ -19,22 +19,29 @@
                      Order="Secondary"
                      Priority="2"/>
 
-        <ToolbarItem x:Name="Toolbar_Profile"
+        <ToolbarItem x:Name="Toolbar_Profile_1"
+                     Clicked="Toolbar_Profile_Clicked"
+                     Text="Profile"
+                     Order="Primary"
+                     Priority="1"/>
+
+        <ToolbarItem x:Name="Toolbar_Profile_2"
                      Clicked="Toolbar_Profile_Clicked"
                      Text="Profile"
                      Order="Secondary"
                      Priority="1"/>
+
+        <ToolbarItem x:Name="Toolbar_Tech"
+                     Text="Mobile Functions"
+                     Order="Secondary"
+                     Clicked="Toolbar_tech_clicked"/>
 
     </ContentPage.ToolbarItems>
 
     <StackLayout Margin="20,5"
                  Spacing="15">
 
-        <Label x:Name="Home_Title_Label"
-               Text="Active Group"
-               Style="{x:StaticResource Headline}"/>
-
-        <Frame BackgroundColor="{x:StaticResource Gray600}"
+        <Frame BackgroundColor="{x:StaticResource Gray400}"
                CornerRadius="20"
                BorderColor="Transparent">
             
@@ -119,7 +126,7 @@
                        Grid.Row="3"/>
 
                 <Rectangle x:Name="BrewsDevider"
-                           Background="{x:StaticResource Secondary}"
+                           Background="{x:StaticResource Primary}"
                            WidthRequest="150"
                            HeightRequest="3"
                            Grid.Row="4"
@@ -176,6 +183,15 @@
             </Grid>
 
         </Frame>
+
+        <Button x:Name="ShowAllGroups"
+                Text="Show all groups"
+                Clicked="Toolbar_Groups_Clicked"
+                FontSize="20"
+                CornerRadius="15"
+                HeightRequest="60"
+                Margin="0,10,0,0"
+                BackgroundColor="{x:StaticResource Gray600}"/>
 
     </StackLayout>
 

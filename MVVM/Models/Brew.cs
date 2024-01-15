@@ -1,4 +1,5 @@
 ﻿using FridgeTracker.Abstractions;
+using SQLite;
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
@@ -8,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace FridgeTracker.MVVM.Models
 {
+    [Table("Brews")]
     public class Brew : TableData
     {
-        [ManyToMany(typeof(GroupBrews), CascadeOperations = CascadeOperation.All)]
-        public List<Group>? Groups {  get; set; } 
+        [ManyToMany(typeof(GroupBrew), CascadeOperations = CascadeOperation.All)]
+        public List<Group>? Groups {  get; set; }
 
         public string? Name { get; set; }
         public string? Description { get; set; }
